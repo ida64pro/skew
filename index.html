@@ -43,6 +43,28 @@
     </script>
     <script>
         window.onload = function() {
+            const audios = [
+                'music/m1.mp3',
+                'music/m2.mp3',
+                'music/m3.mp3',
+                'music/m4.mp3',
+                'music/m5.mp3',
+                'music/m6.mp3',
+                'music/m7.mp3',
+                'music/m8.mp3'
+            ];
+            // Выбор случайного аудио
+            const randomAudio = audios[Math.floor(Math.random() * audios.length)];
+            const playButton = document.getElementById('play-button');
+            const audioElement = document.getElementById('background-music');
+            
+            audioElement.src = randomAudio
+            audioElement.volume = 0.2;
+            playButton.disabled = true; // Деактивировать кнопку
+            playButton.classList.add('disabled'); // Добавить класс для стилизации
+            audioElement.play().catch(error => {
+                console.error('Error playing audio:', error);
+        });
             // Массив путей к GIF-файлам
             const gifs = [
                 'gifs/bg1.gif',
